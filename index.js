@@ -263,7 +263,7 @@ async function adicionarPedido() {
             name: nomeCartao,
             desc: descricao,
             due: dueISO,
-            idMembers: membrosSelecionados.join(',') || null
+            idMembers: membrosSelecionados.join(',') || null,
             idLabels: etiquetasSelecionadas.join(',') || null
         };
 
