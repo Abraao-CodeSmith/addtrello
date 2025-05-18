@@ -238,6 +238,8 @@ async function adicionarPedido() {
     const dataRetirada = document.getElementById('dataRetirada').value;
     const membrosSelecionados = Array.from(document.getElementById('membroTrello').selectedOptions).map(opt => opt.value);
     const arquivos = document.getElementById('anexos').files;
+    const etiquetasSelecionadas = Array.from(document.getElementById('etiquetasTrello').selectedOptions).map(opt => opt.value);
+
 
     if (!nomeCartao || !descricao || !idLista) {
         alert("Preencha ao menos: Lista, Nome do Cartão e Descrição.");
@@ -262,6 +264,7 @@ async function adicionarPedido() {
             desc: descricao,
             due: dueISO,
             idMembers: membrosSelecionados.join(',') || null
+            idLabels: etiquetasSelecionadas.join(',') || null
         };
 
         const resposta = await fetch(urlCartao, {
