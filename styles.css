@@ -1,0 +1,157 @@
+/* Estilos gerais */
+body.index {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #d0e8ff; /* azul claro */
+  color: #002b50;
+}
+.icon.upload-config {
+  background-image: url('icons/upload.svg'); /* Adicione este ícone no seu projeto */
+}
+.icon.upload-config {
+  background-image: url('icons/upload.svg'); /* Certifique-se de que esse ícone exista */
+}
+.icon.upload-config {
+  width: 24px;
+  height: 24px;
+  background-color: #ffffff;
+  color: #003366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.icon.upload-config::before {
+  content: '+';
+}
+
+header {
+  background-color: #003366; /* azul escuro */
+  color: #d0e8ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-left .icon,
+.header-right .icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.icon.user {
+  background-image: url('icons/user.svg');
+}
+
+.icon.settings {
+  background-image: url('icons/settings.svg');
+}
+
+.icon.logout {
+  background-image: url('icons/logout.svg');
+}
+
+main {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+/* Upload */
+.upload-section {
+  margin-bottom: 20px;
+}
+
+/* Formulário responsivo */
+.form-section {
+  background-color: #66a3d2; /* azul médio */
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Grid layout para responsividade */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Campo de formulário */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Estilização dos campos */
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Botão estilizado */
+button {
+  padding: 12px;
+  background-color: #d0e8ff;
+  color: #003366;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #c0dfff;
+}
+
+/* Mensagem de retorno */
+#mensagem {
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Responsividade extra */
+@media (max-width: 600px) {
+  header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+  }
+
+  .responsive-grid {
+      grid-template-columns: 1fr;
+  }
+}

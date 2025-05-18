@@ -1,0 +1,97 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Pedidos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="index">
+    <header>
+        <div class="header-left">
+            <span class="icon user"></span>
+            <span id="username">Usuário</span>
+
+        </div>
+        <div class="header-right">
+            <span class="icon settings" onclick="openSettings()"></span>
+            <span class="icon logout" onclick="logout()"></span>
+            <span class="icon upload-config" onclick="abrirArquivoCredenciais()"
+                title="Carregar Configuração Trello"></span>
+            <input type="file" id="arquivoCredenciais" accept=".txt" style="display: none;"
+                onchange="carregarCredenciais(event)">
+
+        </div>
+
+    </header>
+
+    <main>
+        <section class="upload-section">
+            <label for="pdfInput">Selecionar arquivo PDF do pedido:</label>
+            <input type="file" accept="application/pdf" id="pdfInput" onchange="handlePDF(event)">
+            <div id="debugPdf"
+                style="white-space: pre-wrap; background: #f8f8f8; padding: 10px; border: 1px solid #ccc; margin-top: 10px; max-height: 200px; overflow-y: auto; display: none;">
+            </div>
+        </section>
+
+        <section class="form-section responsive-grid">
+            <div class="form-group">
+                <label for="listaTrello">Lista:</label>
+                <select id="listaTrello">
+                    <option value="">Selecione uma lista</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="membroTrello">Membro:</label>
+                <select id="membroTrello">
+                    <option value="">Selecione um membro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="etiquetasTrello">Etiquetas:</label>
+                <select id="etiquetasTrello" multiple></select>
+                    <option value="">Selecione etiqueta</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="nomeCartao">Nome do cartão:</label>
+                <input type="text" id="nomeCartao" placeholder="Ex: 34143 - NOME">
+            </div>
+
+            <div class="form-group full-width">
+                <label for="descricaoCartao">Descrição:</label>
+                <textarea id="descricaoCartao" placeholder="Ex: IMPRESSÃO - 5 un ..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="dataRetirada">Data de Retirada:</label>
+                <input type="datetime-local" id="dataRetirada">
+            </div>
+
+            <div class="form-group">
+                <label for="anexos">Anexar arquivos:</label>
+                <input type="file" id="anexos" name="file" multiple>
+
+            </div>
+
+            <div class="form-group full-width">
+                <button onclick="adicionarPedido()">Adicionar Pedido</button>
+            </div>
+        </section>
+
+        <div id="mensagem"></div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.0.2/dist/tesseract.min.js"></script>
+
+</body>
+
+</html>
