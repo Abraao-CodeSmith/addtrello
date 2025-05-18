@@ -82,6 +82,7 @@ async function handlePDF(event) {
 
     reader.onload = async function () {
         const typedarray = new Uint8Array(this.result);
+        mostrarCarregando();
         try {
             const pdf = await pdfjsLib.getDocument({ data: typedarray }).promise;
             const page = await pdf.getPage(1);
@@ -102,6 +103,8 @@ async function handlePDF(event) {
             preencherCampos(text);
         } catch (error) {
             mostrarMensagem(`Erro ao ler PDF com OCR: ${error.message}`, true);
+        }finally {
+            ocultarCarregando();
         }
     };
 
@@ -327,4 +330,11 @@ function limparFormulario() {
     document.getElementById('anexos').value = '';
     document.getElementById('membroTrello').selectedIndex = -1;
     document.getElementById('listaTrello').selectedIndex = 0;
+}
+function mostrarCarregando() {
+    document.getElementById('telaCarregando').style.display = 'flex';
+}
+
+function ocultarCarregando() {
+    document.getElementById('telaCarregando').style.display = 'none';
 }
